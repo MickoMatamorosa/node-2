@@ -25,7 +25,7 @@ app.patch('/profile/:userId', profile.update);
 // // Posts
 app.post('/posts', posts.create);
 app.get('/user/:userId/posts', posts.getUserPosts)
-// app.get('/posts/:postId', posts.getPost)
+app.get('/posts/:postId', posts.getPost)
 
 // // Comments
 app.post('/comments', comments.create);

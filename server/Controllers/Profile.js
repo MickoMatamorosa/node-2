@@ -1,9 +1,15 @@
 module.exports = {
     getID: (req, res) => {
         const db = req.app.get('db')
-        const { userId } = req.query
+        let { userId, email } = req.query
       
+        if(email){
+            userId = db.users.data.find(u => u.email === email)
+            userId = userId.id
+        }
+
         const id = parseInt(userId)
+        
         let result = db.profiles.data.find(p => p.userId === id)
       
         res.status(200).json(result)
